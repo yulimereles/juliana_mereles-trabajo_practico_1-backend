@@ -1,4 +1,3 @@
-// Imports
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
@@ -7,8 +6,6 @@ const morgan = require("morgan");
 const path = require("path");
 
  const { body, validationResult } = require('express-validator');
-
-
 
 
 const { sequelize } = require("./database");
@@ -40,7 +37,8 @@ app.post('/',
     res.status(400).json(errors.array());
   });
 
-// Routes
+
+  
 app.use( "/", require("./routes/playlist.routes"));
 app.use( "/", require("./routes/usuario.routes"));
 app.use( "/", require("./routes/cancion.routes"));
