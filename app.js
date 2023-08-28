@@ -6,17 +6,18 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const path = require("path");
 
+ const { body, validationResult } = require('express-validator');
 
 
-// Se importa la instancia de conexión a la base de datos - (debe ser después de leer las variables de entorno)
+
+
 const { sequelize } = require("./database");
 
  
 const app = express();
 const port = process.env.PORT || 5000;
 
-// Middlewares
-// TODO: Implementar middlewares
+
 app.use(cors());
  //app.use(helmet());
 app.use(morgan("dev"));
@@ -25,6 +26,19 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use(express.static(path.join(__dirname, "public")));
+
+app.post('/',
+  body('email').notEmpty().isEmail(),
+  body('password').notEmpty(),
+  (req, res) => {
+    const errors = validationResult(req);
+
+    if (errors.isEmpty()) {
+      return res.json(req.body);
+    }
+    console.log(req.body);
+    res.status(400).json(errors.array());
+  });
 
 // Routes
 app.use( "/", require("./routes/playlist.routes"));
@@ -38,5 +52,4 @@ app.use((req, res, next) => {
 
 module.exports = app;
 
-// Starting the server
 
