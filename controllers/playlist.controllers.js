@@ -18,11 +18,7 @@ ctrl.renderFormEditarPlaylist = (req, res) => {
 
 ctrl.obtenerPlaylists = async (req, res) => {
     try {
-        const playlists = await Playlist.findAll({
-            where: {
-                estado: true
-            }
-        });
+        const playlists = await Playlist.findAll();
 
         return res.json(playlists);
     } catch (error) {
@@ -58,7 +54,8 @@ ctrl.crearPlaylist = async (req, res) => {
     try {
         // Se crea una nueva instancia de reserva
         const nuevaPlaylist = new Playlist({
-           
+           nombre,
+           descripcion
         });
 
         // Se guarda en la BD

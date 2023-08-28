@@ -13,7 +13,7 @@ const sequelize = new Sequelize(
     port: process.env.DB_PORT
   }
 );
-console.log(sequelize);
+// console.log(sequelize);
 
 // Se exportan la conexión a MySQL, Model y DataTypes para poder usarlas en los modelos
 module.exports = {

@@ -1,4 +1,4 @@
-const usuarioCtrl = require("../controllers/usuario.controllers");
+// const usuarioCtrl = require("../controllers/usuario.controllers");
 const { DataTypes, sequelize } = require("../database");
 
 // Usuario

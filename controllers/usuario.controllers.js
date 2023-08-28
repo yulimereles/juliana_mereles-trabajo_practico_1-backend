@@ -7,10 +7,10 @@ usuarioCtrl.crearUsuario = async (req, res) => {
     const { name, username, email, password } = req.body;
     try{
         const nuevoUsuario = await Usuario.create ({
-            name: name,
-            username: username,
-            email: email,
-            password: password
+            name,
+            username,
+            email,
+            password
 
         });
         return res.status(201).json({ message: 'Su usuario fue creado con éxito'});
