@@ -11,12 +11,7 @@ const path = require("path");
 // Se importa la instancia de conexión a la base de datos - (debe ser después de leer las variables de entorno)
 const { sequelize } = require("./database");
 
-// Conexión a base de datos
-// sequelize
-//   .authenticate()
-//   .then(() => console.log("Conexión a base de datos exitosa"))
-//   .catch((error) => console.log("Error al conectar a base de datos", error));
-
+ 
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -44,4 +39,4 @@ app.use((req, res, next) => {
 module.exports = app;
 
 // Starting the server
-app.listen(port, () => console.log(`Server on http://localhost:${port}`));
+
