@@ -17,14 +17,27 @@ const Playlist = sequelize.define(
         type: DataTypes.TEXT,
         allowNull: true,
       },
-      creationDate: {
-        type: DataTypes.DATEONLY,
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
       },
-      updateDate: {
-        type: DataTypes.DATEONLY,
+      updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+      },
+      deletedAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
       },
     },
     {
-      tableName: "playlists",
+      createdAt: true,
+      updatedAt: true,
+      deletedAt: true,
+      tableName: "playlist",
     }
   );
+
+  module.exports = Playlist;

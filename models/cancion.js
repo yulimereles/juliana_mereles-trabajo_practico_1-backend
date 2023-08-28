@@ -1,3 +1,4 @@
+const { DataTypes, sequelize } = require("../database");
 // Cancion
 const Cancion = sequelize.define(
     "Cancion",
@@ -22,3 +23,5 @@ const Cancion = sequelize.define(
       tableName: "canciones",
     }
   );
+
+  module.exports = Cancion;
